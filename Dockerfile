@@ -62,4 +62,4 @@ RUN ARCH=$(dpkg --print-architecture) && echo "Building driver with $ARCH" && /r
 # Build packages with Colcon
 WORKDIR /ros_ws/
 RUN . /opt/ros/humble/setup.sh && \
-    colcon build --symlink-install
+    MAKEFLAGS="-j 1" colcon build --symlink-install --executor sequential
